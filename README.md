@@ -1,37 +1,46 @@
-## Welcome to GitHub Pages
+---
+layout: post
+title: "TIL"
+subtitle: "[TIL]"
+date: 
+background: 
+tag: [TIL, Github, Notion]
+---
+# TIL
 
-You can use the [editor on GitHub](https://github.com/JAEJOON-LEE/jaejoon-lee.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+## Today I Learned.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- React
+    - 2021.08.16
+        - Class로 Props 받을 때 : {this.props.propName}
+        - Function으로 Props 받을 때 : 함수 파라미터로 props전달 → {props.propName}
 
-### Markdown
+            ![스크린샷 2021-08-16 오후 6.14.56.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.14.56.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+            ![스크린샷 2021-08-16 오후 6.12.43.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.12.43.png)
 
-```markdown
-Syntax highlighted code block
+            ---
 
-# Header 1
-## Header 2
-### Header 3
+            - Hook → function을 class처럼 사용하기 위해 (class에서는 내부 함수 bind(this)때문에 불편..)
 
-- Bulleted
-- List
+                : 이름이 use로 시작 ex) useState..
 
-1. Numbered
-2. List
+                - useState → 2개의 값으로 이루어진 배열이 리턴됨
 
-**Bold** and _Italic_ and `Code` text
+                    : 첫번째 값(0번째 인덱스)이 원하는 State값
 
-[Link](url) and ![Image](src)
-```
+                    ![스크린샷 2021-08-16 오후 6.26.21.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.26.21.png)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+                    : 두번째 값이 state를 변경하기 위한 **함수** 
 
-### Jekyll Themes
+                    → 인자에 변경하기로 원하는 값 전달 ex) setNumber(Math.random())
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/JAEJOON-LEE/jaejoon-lee.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+                    ![스크린샷 2021-08-16 오후 6.31.25.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.31.25.png)
 
-### Support or Contact
+                    : 아래와 같이 많이 사용
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+                    → _date에는 state값, setDate에는 state를 변경하기 위한 함수
+
+                    ![스크린샷 2021-08-16 오후 6.35.28.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.35.28.png)
+
+-
