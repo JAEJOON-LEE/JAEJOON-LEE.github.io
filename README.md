@@ -7,9 +7,37 @@
         - Class로 Props 받을 때 : {this.props.propName}
         - Function으로 Props 받을 때 : 함수 파라미터로 props전달 → {props.propName}
 
-            ![스크린샷 2021-08-16 오후 6.14.56.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.14.56.png)
+            ```jsx
+            function App() {
+            	return (
+            		<div className ="container">
+            			<h1>Hello World</h1>
+            			<FuncComp initNumber={2}></FuncComp>
+            			<ClassComp initNumber={2}></ClassComp>
+            		</div>
+            	);
+            }
 
-            ![스크린샷 2021-08-16 오후 6.12.43.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.12.43.png)
+            function FuncComp(props){
+            	return (
+            		<div className ="container">
+            			<h2>function style component</h2>
+            			<p>Number: {props.initNumber}</p>
+            		</div>
+            	);
+            }
+
+            class ClassComp extends React.Component {
+            	render() {
+            		return (
+            			<div className ="container">
+            				<h2>class style component</h2>
+            				<p>Number: {this.props.initNumber}</p>
+            			</div>
+            		)
+            	}
+            }
+            ```
 
             ---
 
@@ -22,27 +50,45 @@
             1. Function에서 **state** 사용하는 방법. (Class에서는 내부 함수 bind(this)때문에 불편..)
                 - **useState** → 2개의 값으로 이루어진 배열이 리턴됨
 
-                    : 첫번째 값(0번째 인덱스)이 원하는 State값
+                    ```jsx
+                    function FuncComp(props){
+                    	var numberState = useState(props.initNumber);
+                    	var number = numberState[0];
+                    	var setNumber = numberState[1];
 
-                    ![스크린샷 2021-08-16 오후 6.26.21.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.26.21.png)
+                    	return (
+                    		<div className = "container">
+                    			<h2>function style component</h2>
+                    			<p>Number : {number}</p>
+                    			<input type = "button" value = "random" onClick = {
+                    					function(){
+                    						setNumber(Math.random());
+                    					}
+                    				}></input>
+                    		</div>
+                    	);
+                    }
+                    ```
+
+                    : 첫번째 값(0번째 인덱스)이 원하는 **State값**
 
                     : 두번째 값이 state를 변경하기 위한 **함수** 
 
                     → 인자에 변경하기로 원하는 값 전달 ex) setNumber(Math.random())
 
-                    ![스크린샷 2021-08-16 오후 6.31.25.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.31.25.png)
-
                     : 아래와 같이 많이 사용
 
                     → _date에는 state값, setDate에는 state를 변경하기 위한 함수
 
-                    ![스크린샷 2021-08-16 오후 6.35.28.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_6.35.28.png)
+                    ```jsx
+                    var [_date, setDate] = useState((new Date()).toString());
+                    ```
 
             1. Function에서 **라이프 사이클**(Life Cycle) 활용하는 방법.
                 - Class에서 라이프 사이클 사용하는 방법
                     - 라이프 사이클(Life Cycle) 흐름도
 
-                        ![스크린샷 2021-08-16 오후 10.37.49.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_10.37.49.png)
+                        ![스크린샷 2021-08-16 오후 10.37.49.png](TIL%20a86191993ea44c28a583e41d0923f8d6/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_10.37.49.png)
 
                     - 예제코드
 
@@ -150,6 +196,25 @@
 
         - Hook 사용 예제 코드
 
-            ![스크린샷 2021-08-16 오후 11.45.23.png](TIL%203ec87a85bd3a401d9b7ad5ddcdd954b8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2021-08-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_11.45.23.png)
+            ```jsx
+            function App() {
+            	var [funcShow, setFuncShow] = useState(true);
+            	var [classShow, setClassShow] = useState(true);
+
+            	return (
+            		<div className ="container">
+            			<h1>Hello World</h1>
+            			<input type="button" value ="remove func" onClick = {function(){
+            				setFuncShow(false);
+            			}}></input>
+            			<input type="button" value ="remove class" onClick = {function(){
+            				setClassShow(false);
+            			}}></input>
+            			{funcShow ? <FuncComp initNumber={1}></FuncComp> : null}
+            			{classShow ? <ClassComp initNumber={2}></ClassComp> : null}
+            		</div>
+            	);
+            }
+            ```
 
             → 각 버튼 클릭하면 funcShow, classShow 값이 true에서 false로 바뀌면서 Component 사라짐
