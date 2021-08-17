@@ -2,6 +2,11 @@
 
 ## Today I Learned.
 
+1. [React](#- React)
+2. [Git](#- Git)
+
+---
+
 - React
     - 2021.08.16
         - Class로 Props 받을 때 : {this.props.propName}
